@@ -75,13 +75,13 @@ export async function fetchPost(pageNumber = 1, pageSize = 20) {
   }
 }
 
-export async function fetchThreadById(id: string) {
+export async function fetchThreadById(threadId: string) {
   connectToDB();
 
   try {
     // Todo: populate community
 
-    const thread = await Thread.findById(id)
+    const thread = await Thread.findById(threadId)
       .populate({
         path: "author",
         model: User,
